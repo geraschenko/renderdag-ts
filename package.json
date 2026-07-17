@@ -1,0 +1,64 @@
+{
+  "name": "@geraschenko/renderdag",
+  "version": "0.1.0",
+  "description": "TypeScript port of Meta's sapling-renderdag: render a DAG into ASCII or Unicode text.",
+  "keywords": [
+    "dag",
+    "graph",
+    "render",
+    "ascii",
+    "unicode",
+    "commit-graph",
+    "sapling",
+    "git",
+    "terminal",
+    "tui"
+  ],
+  "homepage": "https://github.com/geraschenko/renderdag-ts#readme",
+  "bugs": {
+    "url": "https://github.com/geraschenko/renderdag-ts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geraschenko/renderdag-ts.git"
+  },
+  "license": "MIT",
+  "author": "Anton Geraschenko <geraschenko@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "test": "vitest run",
+    "format": "prettier --write \"**/*.{ts,mjs,js,json}\"",
+    "format:check": "prettier --check \"**/*.{ts,mjs,js,json}\"",
+    "presubmit": "npm run build && npm run format:check && npm test",
+    "regen-fixtures": "bash scripts/regen-fixtures.sh",
+    "verify-before-publish": "bash scripts/verify-before-publish.sh"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.5",
+    "typescript": "^5.5.0",
+    "vitest": "^3.0.0"
+  }
+}

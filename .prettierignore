@@ -1,0 +1,11 @@
+# Generated build output.
+dist/
+
+# Verbatim upstream copies — must not be reformatted.
+vendor/
+
+# Machine-generated golden fixtures.
+tests/fixtures/*.json
+
+# Generated lockfile.
+package-lock.json

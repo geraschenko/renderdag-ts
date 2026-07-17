@@ -1,0 +1,16 @@
+# Golden-fixture generator: runs the vendored Rust sapling-renderdag against
+# a corpus of named + random DAGs and dumps inputs/outputs as JSON, which the
+# TypeScript test suite replays byte-for-byte.
+
+[package]
+name = "fixture-gen"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+renderdag = { path = "../vendor/renderdag", package = "sapling-renderdag" }
+drawdag = { path = "../vendor/drawdag", package = "sapling-drawdag" }
+serde_json = "1"
+
+[workspace]
