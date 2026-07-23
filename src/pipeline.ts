@@ -27,3 +27,19 @@ export { AsciiPrefixLineRenderer as Ascii } from './pipeline/row_shape_to_prefix
 export { AsciiLargePrefixLineRenderer as AsciiLarge } from './pipeline/row_shape_to_prefix_lines/ascii_large.js';
 export { BoxDrawingPrefixLineRenderer as BoxDrawing } from './pipeline/row_shape_to_prefix_lines/box_drawing.js';
 export type { PrefixLineRenderer } from './pipeline/types.js';
+
+// PORT NOTE: The following re-exports have no counterpart in pipeline.rs.
+// In Rust these are all nameable as `pipeline::types::*` because `types` is a
+// `pub mod`; they are re-exported here so the types mentioned in the public
+// signatures above (`PrefixLineRenderer`, `GraphRowShaper`) are nameable
+// without reaching through the `types` namespace. `isRepeatable` is a free
+// function in this port (an inherent method on `PrefixLineKind` in Rust), so
+// it must be exported as a value explicitly.
+export { isRepeatable } from './pipeline/types.js';
+export type {
+  GraphRowShape,
+  GraphRowShapeOptions,
+  PrefixLine,
+  PrefixLineKind,
+  PrefixLinePart,
+} from './pipeline/types.js';

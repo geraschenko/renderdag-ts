@@ -13,6 +13,14 @@ import type { GraphRow, Renderer } from './render.js';
 export const DEFAULT_MIN_ROW_HEIGHT = 2;
 
 export interface OutputRendererOptions {
+  /**
+   * Minimum number of text lines to render per graph row.
+   *
+   * This also affects the first pipeline stage: `GraphRowShape.separatorLine`
+   * is only emitted when `minRowHeight <= 1`, because taller rows already
+   * provide visual separation. Consumers that replace the text stage and want
+   * separator information must lower this from its default of 2.
+   */
   minRowHeight: number;
   staggerConsecutiveDisconnectedNodes: boolean;
 }

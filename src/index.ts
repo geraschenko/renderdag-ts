@@ -16,3 +16,16 @@ export { Ancestor, LinkLine } from './pipeline/types.js';
 export type { NodeLine, PadLine } from './pipeline/types.js';
 export { GraphRowRenderer } from './render.js';
 export type { GraphRow, Renderer } from './render.js';
+
+// TS-side ergonomic additions; not mirrored in lib.rs.
+// Rust consumers name these as `renderdag::pipeline::types::*`. npm consumers
+// expect to import types used in their signatures from the package root, so
+// the pipeline types are additionally re-exported here.
+export { isRepeatable } from './pipeline/types.js';
+export type {
+  GraphRowShape,
+  GraphRowShapeOptions,
+  PrefixLine,
+  PrefixLineKind,
+  PrefixLinePart,
+} from './pipeline/types.js';

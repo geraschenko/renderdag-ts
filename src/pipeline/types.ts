@@ -138,7 +138,10 @@ export interface GraphRowShape<N> {
   /** True if this row connects to multiple parents. */
   merge: boolean;
 
-  /** True if this row needs a blank separator before its graph lines. */
+  /**
+   * True if this row needs a blank separator before its graph lines.
+   * Only emitted when `minRowHeight <= 1`; see `GraphRowShapeOptions`.
+   */
   separatorLine: boolean;
 
   /** Abstract columns for the line containing the node. */
